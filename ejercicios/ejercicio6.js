@@ -11,27 +11,24 @@ const verTextoRepetido = (cadena = "", cadena2 = "") => {
     );
   const num = [];
   const nuevaCadena = cadena.split(" ");
-  console.log(nuevaCadena);
 
-  const cadenaLimpiaConComa = [];
-  const cadenaLimpiaSinComa = [];
-  for (i = 0; i < nuevaCadena.length; i++) {
+  for (let i = 0; i < nuevaCadena.length; i++) {
     if (nuevaCadena[i].includes(",")) {
-      cadenaLimpiaConComa.push(nuevaCadena[i].replace(",", ""));
+      num.push(nuevaCadena[i].replace(",", ""));
+    } else if (nuevaCadena[i].includes(".")) {
+      num.push(nuevaCadena[i].replace(".", ""));
     } else {
-      cadenaLimpiaSinComa.push(nuevaCadena[i]);
+      num.push(nuevaCadena[i]);
     }
-
-    num.push([...(cadenaLimpiaConComa + cadenaLimpiaSinComa)]);
   }
-
-  //   const array = cadenaSinpuntos.split(" ");
-
-  //   console.log(array);
-  //   for (let i = 0; i < array.length; i++) {
-  //     if (array[i].toLowerCase() === cadena2.toLowerCase()) num.push(i);
-  //   }
-  //   console.log(num.length);
+  const result = [];
+  for (let i = 0; i < num.length; i++) {
+    if (num[i].toLowerCase() === cadena2.toLowerCase()) result.push(i);
+  }
+  return console.log(result.length);
 };
 
-verTextoRepetido("hola mundo, adios mundo, feliz dia mundo", "mundo");
+const INFO =
+  "Lorem ipsum dolor sit HOLA, consectetur adipiscing elit. Nullam eleifend dictum ligula, vitae egestas lacus sagittis ut. Nullam volutpat sodales odio et vestibulum. Curabitur nibh nisl, viverra id semper in, vehicula quis turpis. Aliquam id leo massa. Curabitur sit amet mauris HOLA nisi. Curabitur vitae pharetra diam, ac venenatis velit. Praesent rhoncus sapien sem, vitae porttitor mauris ultrices sed. Proin dolor ex, faucibus sed iaculis sit amet, suscipit ac hola turpis. Aliquam rhoncus, arcu sit amet efficitur accumsan, purus turpis bibendum nulla, sit amet lacinia eros orci a arcu. Donec HOLA in molestie lectus, a lobortis quam. In eget commodo metus. Aenean viverra elit feugiat viverra commodo. Nullam mollis enim dolor, et iaculis ante sollicitudin ut. Quisque quis malesuada lacus. Etiam a condimentum nisl. Donec semper hola leo placerat purus facilisis mattis. Curabitur finibus porta lacus eu accumsan. Sed eget luctus sem, non rutrum leo. Cras finibus, nisi at faucibus molestie, purus risus maximus massa, et tincidunt ipsum turpis eu ipsum. Proin id vestibulum sem, rutrum aliquam neque. Nam ut venenatis magna. Etiam nisi dui, viverra a ultrices hola porttitor, ullamcorper holA nec nisi. Maecenas efficitur eros in metus posuere, in mattis mauris finibus. Duis feugiat interdum semper. Donec vulputate dapibus nisi.";
+
+verTextoRepetido(INFO, "hola");
